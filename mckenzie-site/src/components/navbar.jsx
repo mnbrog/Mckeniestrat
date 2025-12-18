@@ -140,13 +140,7 @@ const Navbar = () => {
       ref={menuRef}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Left side: text brand on lg, can also keep on mobile */}
-        <Link
-          to="/"
-          className="text-lg font-bold text-slate-50 hover:text-indigo-300 lg:w-[260px]"
-        >
-          {siteName}
-        </Link>
+        <div className="hidden lg:block lg:w-[260px]" aria-hidden="true" />
 
         {/* Center: MS logo (desktop) */}
         <Link
@@ -155,9 +149,9 @@ const Navbar = () => {
           aria-label={`${siteName} home`}
         >
           <img
-            src="../images/logoog.png"
+            src="/images/logoog.png"
             alt="McKenzie Strategies logo"
-            className="h-24 md:h-20 sm:h-16 w-auto object-contain"
+            className="h-12 w-auto object-contain"
             loading="eager"
           />
         </Link>
@@ -213,9 +207,9 @@ const Navbar = () => {
         <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
           <Link to="/" className="mr-auto ml-4" aria-label={`${siteName} home`}>
             <img
-              src="../images/logoog.png"
+              src="/images/logoog.png"
               alt="McKenzie Strategies logo"
-              className="h-24 md:h-20 sm:h-16 w-auto object-contain"
+              className="h-10 w-auto object-contain"
               loading="eager"
             />
           </Link>
