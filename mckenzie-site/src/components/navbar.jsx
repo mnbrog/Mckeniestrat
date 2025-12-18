@@ -1,5 +1,5 @@
 // src/components/navbar.jsx
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react"; 
 import { Link } from "gatsby";
 import { portalUrl, siteName } from "../data/site";
 
