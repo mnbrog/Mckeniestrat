@@ -149,9 +149,9 @@ const Navbar = () => {
           aria-label={`${siteName} home`}
         >
           <img
-            src="/images/logoog.png"
+            src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="h-12 w-auto object-contain"
+            className="h-10-h[96px] w-auto object-contain"
             loading="eager"
           />
         </Link>
@@ -207,7 +207,7 @@ const Navbar = () => {
         <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
           <Link to="/" className="mr-auto ml-4" aria-label={`${siteName} home`}>
             <img
-              src="/images/logoog.png"
+              src="/images/logoog1.png"
               alt="McKenzie Strategies logo"
               className="h-10 w-auto object-contain"
               loading="eager"
