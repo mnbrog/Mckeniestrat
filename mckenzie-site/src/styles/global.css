@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
-/* Optional: site-wide defaults */
 @layer base {
   html {
-    @apply bg-slate-950 text-slate-100;
+    @apply bg-slate-950 text-slate-100 scroll-smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  a {
+    @apply transition-colors duration-150;
   }
 }
