@@ -1,0 +1,5 @@
+{
+  "name": "gatsby-plugin-postcss",
+  "version": "6.0.0",
+  "main": "gatsby-node.js"
+}

@@ -8,6 +8,7 @@
     "gatsby": "^5.14.6",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
+    "gatsby-plugin-postcss": "file:./local-packages/gatsby-plugin-postcss",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-source-filesystem": "^5.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
@@ -15,6 +16,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "file:./local-packages/@tailwindcss-postcss",
     "@tailwindcss/cli": "^4.1.18",
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
