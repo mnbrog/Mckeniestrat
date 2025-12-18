@@ -1,3 +1,4 @@
+// src/components/navbar.jsx
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "gatsby";
 import { portalUrl, siteName } from "../data/site";
@@ -18,9 +19,12 @@ const coolStuffLinks = [
 ];
 
 const Dropdown = ({ label, links, isOpen, onToggle, firstLinkRef }) => (
-  <div className="relative" onKeyDown={(e) => {
-    if (e.key === "Escape") onToggle(false);
-  }}>
+  <div
+    className="relative"
+    onKeyDown={(e) => {
+      if (e.key === "Escape") onToggle(false);
+    }}
+  >
     <button
       className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
       aria-expanded={isOpen}
@@ -31,10 +35,12 @@ const Dropdown = ({ label, links, isOpen, onToggle, firstLinkRef }) => (
           onToggle(!isOpen);
         }
       }}
+      type="button"
     >
       <span>{label}</span>
       <span aria-hidden>▾</span>
     </button>
+
     {isOpen && (
       <div className="absolute left-0 mt-2 w-56 rounded-lg bg-slate-900 shadow-lg ring-1 ring-slate-800">
         <ul className="py-2">
@@ -71,10 +77,12 @@ const MobileDropdown = ({ label, links }) => {
           if (e.key === "Escape") setOpen(false);
         }}
         aria-expanded={open}
+        type="button"
       >
         <span>{label}</span>
         <span aria-hidden>{open ? "▴" : "▾"}</span>
       </button>
+
       {open && (
         <ul className="space-y-1 px-6 pb-3">
           {links.map((item) => (
@@ -114,55 +122,83 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (resourcesOpen && resFirstRef.current) {
-      resFirstRef.current.focus();
-    }
-    if (coolOpen && coolFirstRef.current) {
-      coolFirstRef.current.focus();
-    }
+    if (resourcesOpen && resFirstRef.current) resFirstRef.current.focus();
+    if (coolOpen && coolFirstRef.current) coolFirstRef.current.focus();
   }, [resourcesOpen, coolOpen]);
 
+  // Close desktop dropdowns when the mobile menu opens
+  useEffect(() => {
+    if (menuOpen) {
+      setResourcesOpen(false);
+      setCoolOpen(false);
+    }
+  }, [menuOpen]);
+
   return (
-    <nav className="sticky top-0 z-40 bg-slate-950/95 backdrop-blur border-b border-slate-800" ref={menuRef}>
+    <nav
+      className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 backdrop-blur"
+      ref={menuRef}
+    >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="text-lg font-bold text-slate-50 hover:text-indigo-300">
+        {/* Left side: text brand on lg, can also keep on mobile */}
+        <Link
+          to="/"
+          className="text-lg font-bold text-slate-50 hover:text-indigo-300 lg:w-[260px]"
+        >
           {siteName}
         </Link>
-        <div className="flex items-center gap-4 lg:hidden">
-          <button
-            className="rounded-md p-2 text-slate-100 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-expanded={menuOpen}
+
+        {/* Center: MS logo (desktop) */}
+        <Link
+          to="/"
+          className="hidden lg:flex flex-1 items-center justify-center"
+          aria-label={`${siteName} home`}
+        >
+          <img
+            src="../images/logoog.png"
+            alt="McKenzie Strategies logo"
+            className="h-24 md:h-20 sm:h-16 w-auto object-contain"
+            loading="eager"
+          />
+        </Link>
+
+        {/* Right: desktop nav */}
+        <div className="hidden lg:flex lg:w-[260px] items-center justify-end gap-2">
+          <Link
+            className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800"
+            to="/"
           >
-            <span className="sr-only">Toggle navigation</span>
-            <div className="space-y-1">
-              <span className="block h-0.5 w-6 bg-slate-100" />
-              <span className="block h-0.5 w-6 bg-slate-100" />
-              <span className="block h-0.5 w-6 bg-slate-100" />
-            </div>
-          </button>
-        </div>
-        <div className="hidden items-center gap-2 lg:flex">
-          <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800" to="/">
             Home
           </Link>
-          <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800" to="/team">
+          <Link
+            className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800"
+            to="/team"
+          >
             Our Team
           </Link>
+
           <Dropdown
             label="Resources"
             links={resourcesLinks}
             isOpen={resourcesOpen}
-            onToggle={setResourcesOpen}
+            onToggle={(v) => {
+              setResourcesOpen(v);
+              if (v) setCoolOpen(false);
+            }}
             firstLinkRef={resFirstRef}
           />
+
           <Dropdown
             label="Cool Stuff"
             links={coolStuffLinks}
             isOpen={coolOpen}
-            onToggle={setCoolOpen}
+            onToggle={(v) => {
+              setCoolOpen(v);
+              if (v) setResourcesOpen(false);
+            }}
             firstLinkRef={coolFirstRef}
           />
+
           <a
             href={portalUrl}
             target="_blank"
@@ -172,7 +208,35 @@ const Navbar = () => {
             Client Portal
           </a>
         </div>
+
+        {/* Mobile: center logo + hamburger */}
+        <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
+          <Link to="/" className="mr-auto ml-4" aria-label={`${siteName} home`}>
+            <img
+              src="../images/logoog.png"
+              alt="McKenzie Strategies logo"
+              className="h-24 md:h-20 sm:h-16 w-auto object-contain"
+              loading="eager"
+            />
+          </Link>
+
+          <button
+            className="rounded-md p-2 text-slate-100 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-expanded={menuOpen}
+            type="button"
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <div className="space-y-1">
+              <span className="block h-0.5 w-6 bg-slate-100" />
+              <span className="block h-0.5 w-6 bg-slate-100" />
+              <span className="block h-0.5 w-6 bg-slate-100" />
+            </div>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile panel */}
       {menuOpen && (
         <div className="lg:hidden border-t border-slate-800 bg-slate-950/95 px-4 pb-4 sm:px-6">
           <div className="space-y-2 py-4">
@@ -190,8 +254,10 @@ const Navbar = () => {
             >
               Our Team
             </Link>
+
             <MobileDropdown label="Resources" links={resourcesLinks} />
             <MobileDropdown label="Cool Stuff" links={coolStuffLinks} />
+
             <a
               href={portalUrl}
               target="_blank"
