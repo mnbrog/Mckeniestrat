@@ -151,7 +151,7 @@ const Navbar = () => {
           <img
             src="/images/logoog.png"
             alt="McKenzie Strategies logo"
-            className="h-12 w-auto object-contain"
+            className="h-12 max-w-[96px] w-auto object-contain"
             loading="eager"
           />
         </Link>
@@ -209,7 +209,7 @@ const Navbar = () => {
             <img
               src="/images/logoog.png"
               alt="McKenzie Strategies logo"
-              className="h-10 w-auto object-contain"
+              className="h-10 max-w-[96px] w-auto object-contain"
               loading="eager"
             />
           </Link>
