@@ -25,6 +25,9 @@ const features = [
 const IndexPage = () => {
   return (
     <Layout>
+      <div className="mb-8 rounded-lg bg-blue-600 p-4 text-white shadow-lg">
+        Tailwind CSS utilities are active.
+      </div>
       <section className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-wide text-indigo-300">Rooted in Alabama</p>
