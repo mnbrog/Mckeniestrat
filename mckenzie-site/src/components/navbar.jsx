@@ -139,13 +139,13 @@ const Navbar = () => {
       className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 backdrop-blur"
       ref={menuRef}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:px-8">
-        <div className="hidden lg:block" aria-hidden="true" />
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <div className="hidden lg:block lg:w-[260px]" aria-hidden="true" />
 
         {/* Center: MS logo (desktop) */}
         <Link
           to="/"
-          className="hidden lg:flex items-center justify-center"
+          className="hidden lg:flex flex-1 items-center justify-center"
           aria-label={`${siteName} home`}
         >
           <img
@@ -157,7 +157,7 @@ const Navbar = () => {
         </Link>
 
         {/* Right: desktop nav */}
-        <div className="hidden lg:flex items-center justify-end gap-2 lg:justify-self-end">
+        <div className="hidden lg:flex lg:w-[260px] items-center justify-end gap-2">
           <Link
             className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800"
             to="/"
@@ -204,12 +204,8 @@ const Navbar = () => {
         </div>
 
         {/* Mobile: center logo + hamburger */}
-        <div className="relative flex flex-1 items-center justify-end gap-3 lg:hidden">
-          <Link
-            to="/"
-            className="absolute left-1/2 -translate-x-1/2"
-            aria-label={`${siteName} home`}
-          >
+        <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
+          <Link to="/" className="mr-auto ml-4" aria-label={`${siteName} home`}>
             <img
               src="/images/logoog1.png"
               alt="McKenzie Strategies logo"
