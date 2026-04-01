@@ -55,10 +55,14 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]">
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-4 py-3 sm:px-6 lg:px-8">
-        <div aria-hidden className="h-10" />
+      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <div aria-hidden className="h-10 w-10" />
 
-        <Link to="/" className="justify-self-center" aria-label={`${siteName} home`}>
+        <Link
+          to="/"
+          className="absolute left-1/2 -translate-x-1/2"
+          aria-label={`${siteName} home`}
+        >
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
@@ -67,7 +71,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="flex items-center justify-end gap-3 justify-self-end">
+        <div className="flex items-center justify-end gap-3">
           <button
             className="rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={() => setMenuOpen(!menuOpen)}
