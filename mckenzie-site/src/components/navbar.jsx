@@ -55,25 +55,25 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]">
-      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:h-24 sm:px-6 lg:px-8">
         <div aria-hidden className="h-10 w-10" />
 
         <Link
           to="/"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-1/2 flex h-full w-full max-w-[70vw] -translate-x-1/2 -translate-y-1/2 items-center justify-center px-2 sm:max-w-[24rem]"
           aria-label={`${siteName} home`}
         >
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="h-16 w-auto object-contain sm:h-20"
+            className="max-h-full max-h-14 w-auto max-w-full object-contain sm:max-h-16"
             loading="eager"
           />
         </Link>
 
         <div className="flex items-center justify-end gap-3">
           <button
-            className="rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="flex h-10 w-10 items-center justify-center rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={() => setMenuOpen(!menuOpen)}
             type="button"
             aria-label="Toggle navigation menu"
