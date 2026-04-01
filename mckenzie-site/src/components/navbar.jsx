@@ -21,7 +21,7 @@ const coolStuffLinks = [
 const MobileDropdown = ({ label, links }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rounded-lg bg-[#343a5c]/80">
+    <div className="rounded-lg bg-[#343a5c]">
       <button
         className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-slate-100"
         onClick={() => setOpen(!open)}
@@ -60,20 +60,20 @@ const Navbar = () => {
 
         <Link
           to="/"
-          className="absolute left-1/2 top-1/2 flex h-full w-full max-w-[70vw] -translate-x-1/2 -translate-y-1/2 items-center justify-center px-2 sm:max-w-[24rem]"
+          className="absolute left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center px-2"
           aria-label={`${siteName} home`}
         >
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="max-h-full max-h-14 w-auto max-w-full object-contain sm:max-h-16"
+            className="h-14 w-auto max-w-[70vw] object-contain sm:h-16 sm:max-w-[24rem]"
             loading="eager"
           />
         </Link>
 
         <div className="flex items-center justify-end gap-3">
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="relative z-20 flex h-10 w-10 items-center justify-center rounded-md p-2 text-slate-100 pointer-events-auto hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={() => setMenuOpen(!menuOpen)}
             type="button"
             aria-label="Toggle navigation menu"
