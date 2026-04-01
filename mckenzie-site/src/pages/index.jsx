@@ -35,24 +35,21 @@ const IndexPage = () => {
           marginRight: "calc(50% - 50vw)",
         }}
       >
-        <img
-          src={exampleImage}
-          alt="McKenzie Strategies"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+       
         <div className="absolute inset-0 bg-slate-950/55" />
         <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl items-center justify-center px-6 py-20 text-center sm:px-8 lg:px-12">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-200">
-              Rooted in Alabama
+            Rooted in Alabama
             </p>
 
             <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
-              Our Mission.
+            Our Mission.
             </h1>
 
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-100">
-              {siteName} Our mission at McKenzie Strategies is to empower individuals to deepen self-understanding, overcome obstacles, and build lasting self-efficacy. Through a collaborative, client-centered approach, we help uncover motivation, strengthen resilience, and support meaningful, self-directed growth.
+              {siteName} Our mission at McKenzie Strategies is to empower individuals to deepen self-understanding, overcome obstacles, and build lasting self-efficacy. 
+              Through a collaborative, client-centered approach, we help uncover motivation, strengthen resilience, and support meaningful, self-directed growth.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">

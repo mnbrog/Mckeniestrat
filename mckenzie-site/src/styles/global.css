@@ -2,7 +2,7 @@
 
 @layer base {
   html {
-    @apply bg-[#343a5c] text-slate-100 scroll-smooth;
+    @apply bg-white text-slate-100 scroll-smooth;
   }
 
   body {
