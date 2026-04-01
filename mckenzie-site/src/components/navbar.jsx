@@ -124,18 +124,16 @@ const Navbar = () => {
       className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]/95 backdrop-blur"
       ref={menuRef}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <div className="hidden lg:block lg:w-[260px]" aria-hidden="true" />
-
+      <div className="relative mx-auto flex max-w-6xl items-center justify-end px-4 py-3 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="hidden lg:flex flex-1 items-center justify-center"
+          className="absolute left-1/2 -translate-x-1/2 transform"
           aria-label={`${siteName} home`}
         >
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="h-10 w-auto object-contain"
+            className="h-12 w-auto object-contain sm:h-14"
             loading="eager"
           />
         </Link>
@@ -180,16 +178,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
-          <Link to="/" className="mr-auto ml-4" aria-label={`${siteName} home`}>
-            <img
-              src="/images/logoog1.png"
-              alt="McKenzie Strategies logo"
-              className="h-10 w-auto object-contain"
-              loading="eager"
-            />
-          </Link>
-
+        <div className="flex items-center justify-end gap-3 lg:hidden">
           <button
             className="rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={() => setMenuOpen(!menuOpen)}
