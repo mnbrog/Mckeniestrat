@@ -1,5 +1,5 @@
 // src/components/navbar.jsx
-import React, { useEffect, useRef, useState } from "react"; 
+import React, { useState } from "react";
 import { Link } from "gatsby";
 import { portalUrl, siteName } from "../data/site";
 
@@ -17,44 +17,6 @@ const coolStuffLinks = [
   { label: "Executive Coaching", href: "/cool-stuff#executive-coaching" },
   { label: "MINT Trainings", href: "/cool-stuff#mint-trainings" },
 ];
-
-const Dropdown = ({ label, links, isOpen, onToggle, firstLinkRef }) => (
-  <div
-    className="relative"
-    onKeyDown={(e) => {
-      if (e.key === "Escape") onToggle(false);
-    }}
-  >
-    <button
-      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
-      aria-expanded={isOpen}
-      onClick={() => onToggle(!isOpen)}
-      type="button"
-    >
-      <span>{label}</span>
-      <span aria-hidden>▾</span>
-    </button>
-
-    {isOpen && (
-      <div className="absolute left-0 mt-2 w-56 rounded-lg bg-[#343a5c] shadow-lg ring-1 ring-slate-800">
-        <ul className="py-2">
-          {links.map((item, idx) => (
-            <li key={item.href}>
-              <Link
-                ref={idx === 0 ? firstLinkRef : null}
-                to={item.href}
-                className="block px-4 py-2 text-sm text-slate-100 hover:bg-[#2b314f]"
-                onClick={() => onToggle(false)}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )}
-  </div>
-);
 
 const MobileDropdown = ({ label, links }) => {
   const [open, setOpen] = useState(false);
@@ -90,40 +52,9 @@ const MobileDropdown = ({ label, links }) => {
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
-  const [coolOpen, setCoolOpen] = useState(false);
-  const menuRef = useRef(null);
-  const resFirstRef = useRef(null);
-  const coolFirstRef = useRef(null);
-
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
-        setResourcesOpen(false);
-        setCoolOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
-  useEffect(() => {
-    if (resourcesOpen && resFirstRef.current) resFirstRef.current.focus();
-    if (coolOpen && coolFirstRef.current) coolFirstRef.current.focus();
-  }, [resourcesOpen, coolOpen]);
-
-  useEffect(() => {
-    if (menuOpen) {
-      setResourcesOpen(false);
-      setCoolOpen(false);
-    }
-  }, [menuOpen]);
 
   return (
-    <nav
-      className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]/95 backdrop-blur"
-      ref={menuRef}
-    >
+    <nav className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]">
       <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-4 py-3 sm:px-6 lg:px-8">
         <div aria-hidden className="h-10" />
 
@@ -135,46 +66,6 @@ const Navbar = () => {
             loading="eager"
           />
         </Link>
-
-        <div className="hidden items-center justify-end gap-2 lg:flex">
-          <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" to="/">
-            Home
-          </Link>
-          <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" to="/team">
-            Our Team
-          </Link>
-
-          <Dropdown
-            label="Resources"
-            links={resourcesLinks}
-            isOpen={resourcesOpen}
-            onToggle={(v) => {
-              setResourcesOpen(v);
-              if (v) setCoolOpen(false);
-            }}
-            firstLinkRef={resFirstRef}
-          />
-
-          <Dropdown
-            label="Cool Stuff"
-            links={coolStuffLinks}
-            isOpen={coolOpen}
-            onToggle={(v) => {
-              setCoolOpen(v);
-              if (v) setResourcesOpen(false);
-            }}
-            firstLinkRef={coolFirstRef}
-          />
-
-          <a
-            href={portalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-md px-3 py-2 text-sm font-semibold text-indigo-300 hover:bg-[#2b314f]"
-          >
-            Client Portal
-          </a>
-        </div>
 
         <div className="flex items-center justify-end gap-3 justify-self-end">
           <button
@@ -194,7 +85,7 @@ const Navbar = () => {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden border-t border-slate-800 bg-[#343a5c]/95 px-4 pb-4 sm:px-6">
+        <div className="border-t border-slate-800 bg-[#343a5c] px-4 pb-4 sm:px-6">
           <div className="space-y-2 py-4">
             <Link to="/" className="block rounded-md px-4 py-3 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" onClick={() => setMenuOpen(false)}>
               Home
