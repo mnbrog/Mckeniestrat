@@ -124,21 +124,19 @@ const Navbar = () => {
       className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]/95 backdrop-blur"
       ref={menuRef}
     >
-      <div className="relative mx-auto flex max-w-6xl items-center justify-end px-4 py-3 sm:px-6 lg:px-8">
-        <Link
-          to="/"
-          className="absolute left-1/2 -translate-x-1/2 transform"
-          aria-label={`${siteName} home`}
-        >
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto_1fr] items-center px-4 py-3 sm:px-6 lg:px-8">
+        <div aria-hidden className="h-10" />
+
+        <Link to="/" className="justify-self-center" aria-label={`${siteName} home`}>
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="h-12 w-auto object-contain sm:h-14"
+            className="h-14 w-auto object-contain sm:h-16"
             loading="eager"
           />
         </Link>
 
-        <div className="hidden lg:flex lg:w-[260px] items-center justify-end gap-2">
+        <div className="hidden items-center justify-end gap-2 lg:flex">
           <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" to="/">
             Home
           </Link>
@@ -178,11 +176,13 @@ const Navbar = () => {
           </a>
         </div>
 
-        <div className="flex items-center justify-end gap-3 lg:hidden">
+        <div className="flex items-center justify-end gap-3 justify-self-end">
           <button
             className="rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={() => setMenuOpen(!menuOpen)}
             type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
           >
             <div className="space-y-1">
               <span className="block h-0.5 w-6 bg-slate-100" />
