@@ -4,7 +4,7 @@ import { locations, portalUrl, siteName } from "../data/site";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950/95">
+    <footer className="border-t border-slate-800 bg-[#343a5c]">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           <div>

@@ -64,11 +64,11 @@ const Navbar = () => {
           aria-label={`${siteName} home`}
         >
           <img
-            src="/images/logoog1.png"
-            alt="McKenzie Strategies logo"
-            className="h-14 w-auto max-w-[70vw] object-contain sm:h-16 sm:max-w-[24rem]"
-            loading="eager"
-          />
+  src="/images/logoog1.png"
+  alt="McKenzie Strategies logo"
+  className="h-16 w-auto max-w-[85vw] object-contain sm:h-20 sm:max-w-[26rem]"
+  loading="eager"
+/>
         </Link>
 
         <div className="flex items-center justify-end gap-3">
