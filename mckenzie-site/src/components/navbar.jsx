@@ -26,15 +26,9 @@ const Dropdown = ({ label, links, isOpen, onToggle, firstLinkRef }) => (
     }}
   >
     <button
-      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
       aria-expanded={isOpen}
       onClick={() => onToggle(!isOpen)}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onToggle(!isOpen);
-        }
-      }}
       type="button"
     >
       <span>{label}</span>
@@ -42,14 +36,14 @@ const Dropdown = ({ label, links, isOpen, onToggle, firstLinkRef }) => (
     </button>
 
     {isOpen && (
-      <div className="absolute left-0 mt-2 w-56 rounded-lg bg-slate-900 shadow-lg ring-1 ring-slate-800">
+      <div className="absolute left-0 mt-2 w-56 rounded-lg bg-[#343a5c] shadow-lg ring-1 ring-slate-800">
         <ul className="py-2">
           {links.map((item, idx) => (
             <li key={item.href}>
               <Link
                 ref={idx === 0 ? firstLinkRef : null}
                 to={item.href}
-                className="block px-4 py-2 text-sm text-slate-100 hover:bg-slate-800 focus:bg-slate-800"
+                className="block px-4 py-2 text-sm text-slate-100 hover:bg-[#2b314f]"
                 onClick={() => onToggle(false)}
               >
                 {item.label}
@@ -65,18 +59,10 @@ const Dropdown = ({ label, links, isOpen, onToggle, firstLinkRef }) => (
 const MobileDropdown = ({ label, links }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rounded-lg bg-slate-900/50">
+    <div className="rounded-lg bg-[#343a5c]/80">
       <button
         className="flex w-full items-center justify-between px-4 py-3 text-left text-sm font-semibold text-slate-100"
         onClick={() => setOpen(!open)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            setOpen(!open);
-          }
-          if (e.key === "Escape") setOpen(false);
-        }}
-        aria-expanded={open}
         type="button"
       >
         <span>{label}</span>
@@ -126,7 +112,6 @@ const Navbar = () => {
     if (coolOpen && coolFirstRef.current) coolFirstRef.current.focus();
   }, [resourcesOpen, coolOpen]);
 
-  // Close desktop dropdowns when the mobile menu opens
   useEffect(() => {
     if (menuOpen) {
       setResourcesOpen(false);
@@ -136,13 +121,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 backdrop-blur"
+      className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]/95 backdrop-blur"
       ref={menuRef}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="hidden lg:block lg:w-[260px]" aria-hidden="true" />
 
-        {/* Center: MS logo (desktop) */}
         <Link
           to="/"
           className="hidden lg:flex flex-1 items-center justify-center"
@@ -151,23 +135,16 @@ const Navbar = () => {
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="h-10-h[96px] w-auto object-contain"
+            className="h-10 w-auto object-contain"
             loading="eager"
           />
         </Link>
 
-        {/* Right: desktop nav */}
         <div className="hidden lg:flex lg:w-[260px] items-center justify-end gap-2">
-          <Link
-            className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800"
-            to="/"
-          >
+          <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" to="/">
             Home
           </Link>
-          <Link
-            className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800"
-            to="/team"
-          >
+          <Link className="rounded-md px-3 py-2 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" to="/team">
             Our Team
           </Link>
 
@@ -197,13 +174,12 @@ const Navbar = () => {
             href={portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md px-3 py-2 text-sm font-semibold text-indigo-300 hover:bg-slate-800"
+            className="rounded-md px-3 py-2 text-sm font-semibold text-indigo-300 hover:bg-[#2b314f]"
           >
             Client Portal
           </a>
         </div>
 
-        {/* Mobile: center logo + hamburger */}
         <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
           <Link to="/" className="mr-auto ml-4" aria-label={`${siteName} home`}>
             <img
@@ -215,12 +191,10 @@ const Navbar = () => {
           </Link>
 
           <button
-            className="rounded-md p-2 text-slate-100 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            className="rounded-md p-2 text-slate-100 hover:bg-[#2b314f] focus:outline-none focus:ring-2 focus:ring-indigo-400"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-expanded={menuOpen}
             type="button"
           >
-            <span className="sr-only">Toggle navigation</span>
             <div className="space-y-1">
               <span className="block h-0.5 w-6 bg-slate-100" />
               <span className="block h-0.5 w-6 bg-slate-100" />
@@ -230,22 +204,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile panel */}
       {menuOpen && (
-        <div className="lg:hidden border-t border-slate-800 bg-slate-950/95 px-4 pb-4 sm:px-6">
+        <div className="lg:hidden border-t border-slate-800 bg-[#343a5c]/95 px-4 pb-4 sm:px-6">
           <div className="space-y-2 py-4">
-            <Link
-              to="/"
-              className="block rounded-md px-4 py-3 text-sm font-semibold text-slate-100 hover:bg-slate-800"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/" className="block rounded-md px-4 py-3 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" onClick={() => setMenuOpen(false)}>
               Home
             </Link>
-            <Link
-              to="/team"
-              className="block rounded-md px-4 py-3 text-sm font-semibold text-slate-100 hover:bg-slate-800"
-              onClick={() => setMenuOpen(false)}
-            >
+            <Link to="/team" className="block rounded-md px-4 py-3 text-sm font-semibold text-slate-100 hover:bg-[#2b314f]" onClick={() => setMenuOpen(false)}>
               Our Team
             </Link>
 
@@ -256,7 +221,7 @@ const Navbar = () => {
               href={portalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-md px-4 py-3 text-sm font-semibold text-indigo-300 hover:bg-slate-800"
+              className="block rounded-md px-4 py-3 text-sm font-semibold text-indigo-300 hover:bg-[#2b314f]"
               onClick={() => setMenuOpen(false)}
             >
               Client Portal

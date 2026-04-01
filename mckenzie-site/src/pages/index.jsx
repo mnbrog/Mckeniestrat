@@ -30,11 +30,10 @@ const IndexPage = () => {
         <div className="space-y-6">
           <p className="text-sm font-semibold uppercase tracking-wide text-indigo-300">Rooted in Alabama</p>
           <h1 className="text-4xl font-bold text-slate-50 sm:text-5xl">
-            Strategic, compassionate care for every stage of growth.
+            Our Mission.
           </h1>
           <p className="text-lg text-slate-300">
-            {siteName} helps people and organizations move from stuck to steady with counseling, coaching, and resources that
-            honor the whole person.
+            {siteName} Our mission at McKenzie Strategies is to empower individuals to deepen self-understanding, overcome obstacles, and build lasting self-efficacy. Through a collaborative, client-centered approach, we help uncover motivation, strengthen resilience, and support meaningful, self-directed growth.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -45,7 +44,7 @@ const IndexPage = () => {
             </Link>
             <Link
               to="/resources"
-              className="inline-flex items-center justify-center rounded-md border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-100 hover:border-indigo-400 hover:text-indigo-300"
+              className="inline-flex items-center justify-center rounded-md bg-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-indigo-400"
             >
               Explore Resources
             </Link>
