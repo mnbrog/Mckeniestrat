@@ -26,12 +26,11 @@ const features = [
 const IndexPage = () => {
   return (
     <Layout>
-      {/* FULL-WIDTH TOP IMAGE */}
+      {/* FULL-WIDTH HERO */}
       <section
-        className="relative overflow-hidden -mt-20 sm:-mt-24 lg:-mt-28"
+        className="relative -mx-4 -mt-px flex min-h-[78vh] items-center justify-center overflow-hidden sm:-mx-6 lg:-mx-8"
         style={{
           width: "100vw",
-          height: "70vh",
           marginLeft: "calc(50% - 50vw)",
           marginRight: "calc(50% - 50vw)",
         }}
@@ -41,22 +40,18 @@ const IndexPage = () => {
           alt="McKenzie Strategies"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-slate-950/20" />
-      </section>
-
-      {/* OUR MISSION SECTION BELOW IMAGE */}
-      <section className="py-20">
-        <div className="mx-auto w-full max-w-5xl px-6 text-center sm:px-8 lg:px-12">
+        <div className="absolute inset-0 bg-slate-950/55" />
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-5xl items-center justify-center px-6 py-20 text-center sm:px-8 lg:px-12">
           <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-wide text-indigo-300">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-indigo-200">
               Rooted in Alabama
             </p>
 
-            <h1 className="text-4xl font-bold text-slate-50 sm:text-5xl">
+            <h1 className="text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
               Our Mission.
             </h1>
 
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-300">
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-100">
               {siteName} Our mission at McKenzie Strategies is to empower individuals to deepen self-understanding, overcome obstacles, and build lasting self-efficacy. Through a collaborative, client-centered approach, we help uncover motivation, strengthen resilience, and support meaningful, self-directed growth.
             </p>
 
