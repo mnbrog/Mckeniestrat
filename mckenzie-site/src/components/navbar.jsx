@@ -55,18 +55,18 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-40 border-b border-slate-800 bg-[#343a5c]">
-      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
         <div aria-hidden className="h-10 w-10" />
 
         <Link
           to="/"
-          className="absolute left-1/2 -translate-x-1/2"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           aria-label={`${siteName} home`}
         >
           <img
             src="/images/logoog1.png"
             alt="McKenzie Strategies logo"
-            className="h-14 w-auto object-contain sm:h-16"
+            className="h-16 w-auto object-contain sm:h-20"
             loading="eager"
           />
         </Link>
