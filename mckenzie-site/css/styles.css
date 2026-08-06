@@ -296,6 +296,14 @@ p { margin: 0 0 1em; color: var(--ink); }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
 }
 
+.card--service {
+  padding: 20px;
+}
+.card--service h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
 .card {
   background: #fff;
   border: 1px solid var(--border);
