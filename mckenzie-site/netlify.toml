@@ -1,0 +1,37 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "https://mckenziestrategies.com/*"
+  to = "https://www.mckenziestrategies.com/:splat"
+  status = 301
+  force = true
+
+# Old Softr link that never resolved to a real page — send it to the
+# "Upcoming Dates" section we added on the ContEdu page instead of 404ing.
+[[redirects]]
+  from = "/upcomingdates"
+  to = "/contedu.html#upcoming-dates"
+  status = 301
+
+[[redirects]]
+  from = "/team"
+  to = "/about.html"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

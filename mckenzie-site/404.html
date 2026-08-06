@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | McKenzie Strategies</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a class="brand" href="/">
+      <img src="/images/logo-mckenzie-strategies.png" alt="McKenzie Strategies logo">
+      <span>McKenzie Strategies</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/faqs.html">FAQs</a></li>
+      <li><a href="/contedu.html">ContEdu</a></li>
+      <li><a href="/fly.html">FLY</a></li>
+      <li><a href="/podcast.html">Podcast</a></li>
+      <li><a href="/resources.html">Resources</a></li>
+      <li><a href="/contact.html" class="btn btn--primary">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="min-height:50vh; display:flex; align-items:center;">
+    <div class="container hero-inner">
+      <p class="eyebrow">404</p>
+      <h1>Page not found.</h1>
+      <p class="lede">The page you're looking for doesn't exist. Try heading back home.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn--primary" href="/">Return Home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none; justify-content:center;">
+      <span>&copy; <span id="year"></span> McKenzie Strategies LLC. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

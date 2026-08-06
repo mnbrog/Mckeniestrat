@@ -1,99 +1,47 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# McKenzie Strategies — Website
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+A plain, static HTML/CSS/JS site for [mckenziestrategies.com](https://www.mckenziestrategies.com), migrated from Softr. No build step, no framework, no dependencies — every page is a self-contained `.html` file that references shared `/css/styles.css` and `/js/main.js`.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## Structure
 
-## 🚀 Quick start
+```
+.
+├── index.html          Home
+├── about.html           About & team
+├── contact.html         Contact (Netlify Form)
+├── faqs.html             FAQs
+├── contedu.html          Continuing Education
+├── fly.html              FLY (Freedom Lies in You) program
+├── podcast.html          Talking Strategies podcast
+├── resources.html        Resources hub
+├── workplace.html        Careers (coming soon)
+├── 404.html
+├── css/styles.css
+├── js/main.js            Mobile nav toggle only
+├── images/               All site images
+├── netlify.toml          Redirects, headers, publish config
+├── sitemap.xml
+└── robots.txt
+```
 
-1.  **Create a Gatsby site.**
+## Editing content
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+Every page is plain HTML — open the file, edit the text, save. There is no templating; the header/nav and footer are duplicated at the top and bottom of each page, so a nav or footer change needs to be made in each file (find/replace across files works well for this).
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+## Forms
 
-1.  **Start developing.**
+The Contact form, the About-page newsletter signup, and the ContEdu sign-up form all use [Netlify Forms](https://docs.netlify.com/manage/forms/setup/) (`data-netlify="true"`). No backend or JavaScript is required — Netlify parses the static HTML at deploy time and handles submissions automatically. Submissions show up under **Site settings → Forms** in the Netlify dashboard, and you can turn on email notifications there.
 
-    Navigate into your new site’s directory and start it up.
+## Local preview
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+No build step means no server is required — just open `index.html` directly in a browser, or serve the folder with any static file server, e.g.:
 
-1.  **Open the source code and start editing!**
+```
+npx serve .
+```
 
-    Your site is now running at `http://localhost:8000`!
+## Deploy
 
-    Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
-
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a typical Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-1.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-1.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-1.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-1.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
-
-1.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-1.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-1.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-1.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-1.  **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On Netlify](https://netlify.com)
-
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+See the deployment/DNS steps provided separately, or:
+1. Push this repo to GitHub (already done) and connect it in Netlify with **Base directory:** `mckenzie-site`, **Publish directory:** `.`, **Build command:** *(leave blank)*.
+2. Or drag-and-drop the `mckenzie-site` folder directly onto [app.netlify.com/drop](https://app.netlify.com/drop).
