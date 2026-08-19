@@ -30,7 +30,7 @@ Every page is plain HTML — open the file, edit the text, save. There is no tem
 
 ## Forms
 
-The Contact form, the About-page newsletter signup, and the ContEdu sign-up form all use [Netlify Forms](https://docs.netlify.com/manage/forms/setup/) (`data-netlify="true"`). No backend or JavaScript is required — Netlify parses the static HTML at deploy time and handles submissions automatically. Submissions show up under **Site settings → Forms** in the Netlify dashboard, and you can turn on email notifications there.
+The About-page newsletter signup and the ContEdu sign-up form use [Netlify Forms](https://docs.netlify.com/manage/forms/setup/) (`data-netlify="true"`). The Contact page does not have its own form &mdash; its "Send a Message" button links out to the SimplePractice contact widget at <https://mckenzie-strategies.clientsecure.me/contact-widget>, and those inquiries arrive in SimplePractice rather than Netlify. No backend or JavaScript is required — Netlify parses the static HTML at deploy time and handles submissions automatically. Submissions show up under **Site settings → Forms** in the Netlify dashboard, and you can turn on email notifications there.
 
 ## Local preview
 
