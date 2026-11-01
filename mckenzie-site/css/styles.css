@@ -348,6 +348,11 @@ p { margin: 0 0 1em; color: var(--ink); }
   object-fit: cover;
 }
 .person-body { min-width: 0; }
+/* Three-across team row: stack photo above text so bios have room */
+.grid--team > .person { flex-direction: column; }
+@media (max-width: 900px) {
+  .grid--team > .person { flex-direction: row; }
+}
 .person-name { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--navy-900); }
 .person-cred { color: var(--teal); font-size: 0.86rem; font-weight: 600; }
 .person-role {
