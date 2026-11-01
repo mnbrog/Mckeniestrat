@@ -350,8 +350,10 @@ p { margin: 0 0 1em; color: var(--ink); }
 .person-body { min-width: 0; }
 /* Three-across team row: stack photo above text so bios have room */
 .grid--team > .person { flex-direction: column; }
+/* Narrow cards: stack the photo above the text so the bio runs the full
+   width of the card instead of wrapping in a column beside the avatar. */
 @media (max-width: 900px) {
-  .grid--team > .person { flex-direction: row; }
+  .person { flex-direction: column; gap: 14px; }
 }
 .person-name { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--navy-900); }
 .person-cred { color: var(--teal); font-size: 0.86rem; font-weight: 600; }
